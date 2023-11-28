@@ -1,7 +1,8 @@
+import 'package:app_mensajeria_material3/destinations.dart';
 import 'package:flutter/material.dart';
 
 import '../animations.dart';                          // Add this import
-import '../destinations.dart';
+
 import '../transitions/bottom_bar_transition.dart';   // Add this import
 
 class DisappearingBottomNavigationBar extends StatelessWidget {

@@ -1,3 +1,5 @@
+import 'package:app_mensajeria_material3/transitions/list_detail_transition.dart';
+import 'package:app_mensajeria_material3/widgets/reply_list_view.dart';
 import 'package:flutter/material.dart';
 
 import 'animations.dart';                               // Add this import
@@ -113,14 +115,18 @@ class _FeedState extends State<Feed> with SingleTickerProviderStateMixin {
               Expanded(
                 child: Container(
                   color: _backgroundColor,
-                  child: EmailListView(
-                    selectedIndex: selectedIndex,
-                    onSelected: (index) {
-                      setState(() {
-                        selectedIndex = index;
-                      });
-                    },
-                    currentUser: widget.currentUser,
+                 child: ListDetailTransition(
+                    animation: _railAnimation,
+                    one: EmailListView(
+                      selectedIndex: selectedIndex,
+                      onSelected: (index) {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
+                      currentUser: widget.currentUser,
+                    ),
+                    two: const ReplyListView(),
                   ),
                 ),
               ),
